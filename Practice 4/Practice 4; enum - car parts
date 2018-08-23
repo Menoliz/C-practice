@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Rem4
+{
+    
+    public enum CarParts
+    {
+        Windows = 100,
+        Door = 200,
+        Engine = 700,
+        Exhaust = 100,
+        Bumper = 100,
+    }
+
+}
