@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Excercise_5
+{
+    class Retest5
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter an English word");
+            string input = Console.ReadLine();
+            int vowelAmount = CountVowels(input);
+            Console.WriteLine(vowelAmount);
+        }
+        //PROCEDURAL PROGRAMMING
+
+        public static int CountVowels(string input)
+        {
+            if (String.IsNullOrWhiteSpace(input))
+            {
+                Console.WriteLine("Nothing entered");
+                return 0;
+            }
+            string inputWord = input.ToLower();
+            List<char> vowelList = new List<char>() { 'a', 'e', 'o', 'u', 'i' };
+            int vowelAmount = 0;
+
+            foreach (char aChar in inputWord)
+            {
+                if (vowelList.Contains(aChar))
+                {
+                    vowelAmount++;
+                }
+            }
+            return vowelAmount;
+        }
+    }
+}
