@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Excercise3
+    public class Retest3
+    {
+        static void Main()
+        {
+
+            Console.WriteLine("Enter 5 unique numbers");
+            List<int> numberList = new List<int>();
+
+            while (numberList.Count < 5)
+            {
+                int inputNumber = Convert.ToInt32(Console.ReadLine());
+                if (numberList.Contains(inputNumber))
+                {
+                    Console.WriteLine("Number already exists");
+                    continue;
+                }
+                numberList.Add(inputNumber);
+            }
+
+            numberList.Sort();
+            foreach(int number in numberList)
+            {
+                Console.WriteLine(number);
+            }
+
+        }
+    }
+
