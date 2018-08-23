@@ -1,0 +1,39 @@
+using System;
+
+
+namespace Excercise2
+{
+    class Restest_ex_2
+    {
+        static void Main()
+        {
+            var sum = 0;
+
+            Console.WriteLine("Enter a number to calculate sum (ok to exit)");
+
+            while (true)
+            {
+                var text = Console.ReadLine();
+
+                if(text.ToLower() == "ok")
+                {
+                    Console.Write("Are you sure you want to quit? Press 'Y' ");
+                    var decision = Console.ReadLine();
+
+                    if (decision.ToLower() == "y")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+                sum += Convert.ToInt32(text);
+            }
+
+            Console.WriteLine("The sum: " + sum);
+        }
+    }
+}
