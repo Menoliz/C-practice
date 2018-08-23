@@ -1,0 +1,102 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Text.RegularExpressions;
+
+namespace ProjectRemember
+{
+    class List_Stuff //I write code that can read the 2 files, then get the numbers from the file, then process the 
+                     //numbers so that there would be no abnormalities (range between 1-100) then get the 
+                     //averages from both files, print them and the difference between them. Put the results in
+                     //another text file named "Reanalyzed Results"
+    {
+        static void Main()
+        {
+            string filePath = @"C:\Users\Serene\Desktop\RandomTextFile.txt";
+            string filePath2 = @"C:\Users\Serene\Desktop\RandomTextFile2.txt";
+
+            string fileText = File.ReadAllText(filePath);
+            string fileText2 = File.ReadAllText(filePath2);
+
+            string regexStr = Regex.Replace(fileText, "[^0-9.]", " ");
+            string regexStr2 = Regex.Replace(fileText2, "[!-,:-z/-]", "");
+
+            regexStr = Regex.Replace(regexStr, @"\s+", " "); //this replaces all spaces (tabs etc.) with one space
+            regexStr2 = Regex.Replace(regexStr2, @"\s+", " "); //this replaces all spaces with one space
+            
+            string[] sNumberArray = (regexStr.Split(' '));
+            string[] sNumberArray2 = (regexStr2.Split(' '));
+
+            List<string> strNumberList = new List<string>(sNumberArray);
+            List<string> strNumberList2 = new List<string>(sNumberArray2);
+
+            if (strNumberList[0] == String.Empty) //Removes the first element if its a space
+            {
+                strNumberList.RemoveAt(0);
+            }
+            if (strNumberList[strNumberList.Count - 1] == String.Empty) //Removes the last element if its a space
+            {
+                strNumberList.RemoveAt(strNumberList.Count - 1);
+            }
+
+            if (strNumberList2[0] == String.Empty)
+            {
+                strNumberList2.RemoveAt(0);
+            }
+            if (strNumberList2[strNumberList2.Count - 1] == String.Empty)
+            {
+                strNumberList2.RemoveAt(strNumberList2.Count - 1);
+            }
+
+            List<double> dNumberList = new List<double>();
+            List<double> dNumberList2 = new List<double>();
+
+            foreach (string strNumber in strNumberList)
+            {
+                dNumberList.Add(Convert.ToDouble(strNumber));
+            }
+            foreach (string strNumber2 in strNumberList2)
+            {
+                dNumberList2.Add(Convert.ToDouble(strNumber2));
+            }
+
+            //I have the numbers in a double list
+            //_______________________________________________________________________
+
+            //I need to remove all numbers not within range of 1 - 100
+
+            List<double> newdNumberList = new List<double>();
+            List<double> newdNumberList2 = new List<double>();
+
+
+            for (int x = 0; x < dNumberList.Count; x++)
+            {
+                if (dNumberList[x] > 1 && dNumberList[x] < 100)
+                {
+                    newdNumberList.Add(dNumberList[x]);
+                }
+            }
+            for (int x = 0; x < dNumberList2.Count; x++)
+            {
+                if (dNumberList2[x] > 1 && dNumberList2[x] < 100)
+                {
+                    newdNumberList2.Add(dNumberList2[x]);
+                }
+            }
+            //Both list element values are within range 1-100
+            //_______________________________________________________________________
+
+            double theListAverage = newdNumberList.Average();
+            double theListAverage2 = newdNumberList2.Average();
+            double difference = Math.Abs(theListAverage - theListAverage2);
+
+            StreamWriter newFile = new StreamWriter(@"C:\Users\Serene\Desktop\Reanalyzed Results.txt");
+            newFile.Write("The first average: " + theListAverage + "\r\nThe seconds average: " + theListAverage2 + "\r\n\r\nThe difference : " + difference);
+            newFile.Close();
+            Console.WriteLine("Created the file!");
+        }
+    }
+}
