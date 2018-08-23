@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Excercise_1
+{
+    class Retest
+    {
+        static void Main()
+        {
+            Console.WriteLine("Write names 'Enter to exit'");
+            List<string> names = new List<string>();
+
+
+            while (true)
+            {
+
+                var nameInput = Console.ReadLine();
+
+                if (String.IsNullOrWhiteSpace(nameInput))
+                    {
+                        break;
+                    }
+
+            names.Add(nameInput);
+
+            }
+
+            if (names.Count >= 2)
+            {
+                Console.WriteLine(names[0] + " and " + (names.Count -1) + " others have liked your post");
+            }
+            else if (names.Count == 1)
+            {
+                Console.WriteLine(names[0] + " has liked your post");
+            }
+            else
+            {
+                Console.WriteLine("Feelsbadman");
+            }
+            //____________________________________________________________________________________________________________________________________________
+
+            Console.WriteLine("Enter some numbers");
+            List<int> numberList = new List<int>();
+
+            while (true)
+            {
+                string strNumber = (Console.ReadLine());
+
+                if (String.IsNullOrWhiteSpace(strNumber))
+                {
+                    break;
+                }
+
+                int intNumber = Convert.ToInt32(strNumber);
+                numberList.Add(intNumber);
+            }
+            //____________________________________________________________________________________________________________________________________________
+
+            List<int> newNumberList = new List<int>();
+            List<int> remadeNumberList = new List<int>();
+
+            int x = 0;
+            while(x < numberList.Count)
+            {
+                if (numberList[x]%2 != 0)
+                {
+                    remadeNumberList.Add(numberList[x]);
+                }
+                else
+                {
+                    newNumberList.Add(numberList[x]);
+                    Console.WriteLine("Removed number: " + numberList[x]);
+                }
+                x++;
+            }
+
+            //____________________________________________________________________________________________________________________________________________
+
+            Console.WriteLine("\n\nDisplaying odd numbers list if given");
+
+            int i = 0;
+            while(i < remadeNumberList.Count)
+            {
+                Console.WriteLine(remadeNumberList[i]);
+                i++;
+            }
+
+            Console.WriteLine("\n\nDisplaying the even number list if given");
+            int i2 = 0;
+            while (i2 < newNumberList.Count)
+            {
+                Console.WriteLine(newNumberList[i2]);
+                i2++;
+            }
+
+            Console.WriteLine("Task ended");
+
+        }
+    }
+}
