@@ -1,0 +1,32 @@
+using System;
+
+
+namespace Excercise5
+{
+    class Program5
+    {
+        static void Main()
+        {
+            Console.WriteLine("Write some numbers seperated by a comma:");
+            string inputNumbers = Console.ReadLine();
+            string[] arrayNumber = inputNumbers.Split(',');
+
+
+            int maxNumber = Convert.ToInt32(arrayNumber[0]);
+            int sum = 0;
+            foreach (string strNumber in arrayNumber)
+            {
+                int currentForNumber = Convert.ToInt32(strNumber);
+                sum = sum + currentForNumber;
+
+                if (maxNumber < currentForNumber)
+                {
+                    maxNumber = currentForNumber;
+                }
+            }
+
+            Console.WriteLine("The max number: " + maxNumber);
+            Console.WriteLine("the sum: " + sum);
+        }
+    }
+}
