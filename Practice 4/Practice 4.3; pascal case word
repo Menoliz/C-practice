@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Excercise_4
+{
+    class Retest4
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter words seperated by space: ' ' ");
+            string inputWords = Console.ReadLine();
+            string wholeSentence = PascalCaseWord(inputWords);
+            Console.WriteLine(wholeSentence);
+        }
+
+        public static string PascalCaseWord(string inputWords)
+        {
+            if (String.IsNullOrWhiteSpace(inputWords))
+            {
+                Console.WriteLine("No input");
+                return " ";
+            }
+
+            string[] stringArray = inputWords.Split(' ');
+            string wholeSentence = "";
+
+            foreach (string word in stringArray)
+            {
+                char charUpper = char.ToUpper(word[0]);
+                string afterWord = word.ToLower().Substring(1);
+                string pascalCaseWord = charUpper + afterWord;
+
+                wholeSentence += pascalCaseWord;
+            }
+            return wholeSentence;
+        }
+    }
+}
