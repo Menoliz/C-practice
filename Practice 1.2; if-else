@@ -1,0 +1,44 @@
+using System;
+/*
+namespace Exercise_4
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter the speed limit of road");
+            var speedLimit = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the speed of car");
+            var speedCar = Convert.ToInt32(Console.ReadLine());
+            var aboveSpeed = speedCar - speedLimit;
+
+            if (speedCar < speedLimit)
+            {
+                Console.WriteLine("All is good");
+            }
+            else
+            {
+                Calculator.CalcSpeed(aboveSpeed);
+            }
+
+        }
+
+       
+    }
+
+    public class Calculator
+    {
+        public static void CalcSpeed(int aboveSpeed)
+        {
+            var demerit = aboveSpeed / 3;
+            if (demerit < 12)
+            {
+                Console.WriteLine(demerit);
+            }
+            else
+            {
+                Console.WriteLine("You lost your drivers license");
+            }
+        }
+    }
+}
