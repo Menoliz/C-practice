@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+
+
+namespace Prac2
+{
+    class Prac2
+    {
+        static void Main()
+        {
+            List<int> skaiciai = new List<int>() {2,4,6,8};
+            skaiciai.Add(2);
+            skaiciai.AddRange(new int[3] {10,12,14});
+
+            foreach(int skaicius in skaiciai)
+            {
+                Console.WriteLine(skaicius);
+            }
+
+            Console.WriteLine("\nIndex of 2 is: " +  skaiciai.IndexOf(2));
+
+            Console.WriteLine("\nLast Index of 2 is: " + skaiciai.LastIndexOf(2));
+
+            Console.WriteLine("THe amount: " + skaiciai.Count);
+
+            for(int x = 0; x < skaiciai.Count; x++)
+            {
+                if (skaiciai[x] == 2)
+                {
+                    skaiciai.Remove(skaiciai[x]);
+                }
+            }
+
+            foreach (int skaicius in skaiciai)
+            {
+                Console.WriteLine(skaicius);
+            }
+
+            skaiciai.Clear();
+            Console.WriteLine("\nThe amount: " + skaiciai.Count);
+
+        }
+    }
+}
