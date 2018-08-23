@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Excercise_4
+{
+    class Retest4
+    {
+        static void Main()
+        {
+            List<int> numberList = new List<int>();
+            Console.WriteLine("Enter numbers (type 'Quit' to exit)");
+            while (true)
+            {
+                Console.WriteLine("Enter number or 'Quit'");
+                string strInput = Console.ReadLine();
+                if (strInput.ToLower() == "quit")
+                {
+                    break;
+                }
+                numberList.Add(Convert.ToInt32(strInput));
+            }
+
+            var uniqueNumberList = GetUniqueNumbers(numberList);
+
+            Console.WriteLine("The sorted numbers: ");
+            foreach(int number in uniqueNumberList)
+            {
+                Console.Write(number + " ");
+            }
+            Console.WriteLine();
+        }
+
+        public static List<int> GetUniqueNumbers(List<int> numberList)
+        {
+            List<int> uniqueNumberList = new List<int>();
+
+            foreach (int number in numberList)
+            {
+                if (!uniqueNumberList.Contains(number))
+                {
+                    uniqueNumberList.Add(number);
+                }
+            }
+            return uniqueNumberList;
+        }
+    }
+}
