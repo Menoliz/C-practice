@@ -1,0 +1,139 @@
+using System;
+using System.Collections.Generic;
+/*
+namespace Excercise_1
+{
+    class Excer1
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter some numbers seperated by '-' ");
+            string inputString = Console.ReadLine();
+
+            List<int> numberList = new List<int>();
+            string[] splitString = inputString.Split('-');
+
+            foreach (string number in splitString)
+            {
+                numberList.Add(Convert.ToInt32(number));
+            }
+            numberList.Sort();
+
+            bool isConsecutive1 = true;
+            bool isConsecutive2 = true;
+            for (int x = 1; x < numberList.Count; x++)
+            {
+                if (numberList[x] != numberList[x - 1] + 1)
+                {
+                    isConsecutive1 = false;
+                }
+                else if (numberList[x] != numberList[x - 1] - 1)
+                {
+                    isConsecutive2 = false;
+                }
+            }
+
+            if (isConsecutive1 == false && isConsecutive2 == false)
+            {
+                Console.WriteLine("Not consecutive");
+            }
+            else
+            {
+                Console.WriteLine("Ye its consecutive");
+            }
+        }
+    }
+} //It was writen differently than on the string.cs excercise exmaples
+
+    
+
+
+
+
+
+
+
+namespace Excercise_1
+{
+    class Retest1
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter numbers seperated by '-' ");
+            string inputNumbers = Console.ReadLine();
+            string outPut = ConsecutiveNumbers(inputNumbers);
+            Console.WriteLine(outPut);
+        }
+
+        public static string ConsecutiveNumbers(string inputNumbers)
+        {
+            string[] splitString = inputNumbers.Split('-');
+            List<int> numberList = new List<int>();
+
+            foreach (string number in splitString)
+            {
+                numberList.Add(Convert.ToInt32(number));
+                Console.WriteLine(number);
+            }
+            numberList.Sort();
+            bool isConsecutive = true;
+
+            for (int z = 1; z < numberList.Count; z++)
+            {
+                if (numberList[z - 1] != numberList[z] - 1)
+                {
+                    isConsecutive = false;
+                    break;
+                }
+            }
+
+            if (isConsecutive == true)
+            {
+                //Console.WriteLine("Its consecutive");
+                return "Its consecutive";
+            }
+            else
+            {
+                //Console.WriteLine("No its not consecutive");
+                return "No its not consecutive";
+            }
+        }
+    }
+}
+
+
+
+
+
+namespace Excercise_1
+{
+    class Practice1
+    {
+        static void Main()
+        {
+            Console.WriteLine("Write numbers seperated by space: ' ' ");
+            string inputString = Console.ReadLine();
+            Console.WriteLine(ReturnSum(inputString));
+
+            int intNumber = ReturnSum(inputString);
+            Console.WriteLine(ReturnChar(intNumber));
+        }
+
+        public static int ReturnSum(string inputString)
+        {
+            string[] stringArray = inputString.Split(' ');
+            int sum = 0;
+            foreach (string number in stringArray)
+            {
+                sum += Convert.ToInt32(number);
+            }
+            return sum;
+        }
+
+        public static char ReturnChar(int intNumber)
+        {
+            char aChar = Convert.ToChar(intNumber);
+            return aChar;
+        }
+    }
+}
