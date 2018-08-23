@@ -1,0 +1,35 @@
+//C# code
+
+using System;
+
+namespace Prac3
+{
+    class Program
+    {
+        static void Main()
+        {
+            double x;
+            double y;
+
+            Console.WriteLine("Write first number");
+            x = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Write second number");
+            y = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("The larger one is: ");
+
+            if (x == y)
+            {
+                Console.WriteLine("Both are equal");
+            }
+            else if (x > y)
+            {
+                Console.WriteLine(x);
+            }
+            else
+            {
+                Console.WriteLine(y);
+            }
+        }
+    }
+}
