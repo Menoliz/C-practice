@@ -1,0 +1,74 @@
+using System;
+using System.Text;
+
+namespace Prac3
+{
+    class Retest3
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter the length of the password");
+            int passLength = Convert.ToInt32(Console.ReadLine());
+            
+            Random rnd = new Random();
+
+            string definedChars = "ABCDFabcdf12345";
+            StringBuilder thePassStrBuild = new StringBuilder();
+            StringBuilder thePassStrBuild2 = new StringBuilder();
+
+            for (int x = 0; x < passLength; x++)
+            {
+                thePassStrBuild.Append(definedChars.Substring(rnd.Next(definedChars.Length), 1));
+                thePassStrBuild2.Append(definedChars.Substring(rnd.Next(definedChars.Length), 1));
+
+            }
+            Console.WriteLine("Password: " + thePassStrBuild);
+            Console.WriteLine("Password: " + thePassStrBuild2);
+            Console.WriteLine("If these 2 passwords have a character in common, it will be removed from both of them.");
+            string thePassString = thePassStrBuild.ToString();
+            string thePassString2 = thePassStrBuild2.ToString();
+            Console.Write("Contains: ");
+            foreach (char aChar in thePassString)
+            {
+                if (thePassString2.Contains(aChar.ToString()))
+                {
+                    Console.Write(aChar);
+                    thePassStrBuild.Replace(aChar, ' ');
+                    thePassStrBuild2.Replace(aChar, ' ');
+                }
+            }
+
+            thePassStrBuild.Replace(" ", string.Empty);
+            thePassStrBuild2.Replace(" ", string.Empty);
+
+            Console.WriteLine();
+            Console.WriteLine("Modified pass: " + thePassStrBuild);
+            Console.WriteLine("Modified pass: " + thePassStrBuild2);
+
+
+            string combinedPassString = thePassStrBuild.ToString() + thePassStrBuild2.ToString();
+            if (String.IsNullOrEmpty(combinedPassString))
+            {
+                Console.WriteLine("Oh no the string is empty");
+            }
+            else
+            {
+                Console.WriteLine("The combined password: " + combinedPassString);
+            }
+
+
+            StringBuilder combinedPassStrBuild = new StringBuilder(combinedPassString);
+            string definedChars2 = "123456789";
+            foreach(char aChar in definedChars2)
+            {
+                if (combinedPassString.Contains(aChar.ToString()))
+                {
+                    //Console.WriteLine("Contains " + aChar);
+                    combinedPassStrBuild.Replace(aChar, ' ');
+                }
+            }
+            combinedPassStrBuild.Replace(" ", string.Empty);
+            Console.WriteLine("\nCombined password without numbers: " + combinedPassStrBuild);
+        }
+    }
+}
