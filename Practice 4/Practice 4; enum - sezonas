@@ -1,0 +1,14 @@
+using System;
+
+
+namespace VS_Comp_4
+{
+    public enum Sezonas
+    {
+        Pavasaris,
+        Vasara,
+        Ruduo,
+        Ziema,
+        Random
+    }
+}
