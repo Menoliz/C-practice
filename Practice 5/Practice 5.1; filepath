@@ -1,0 +1,27 @@
+using System.IO;
+
+namespace VS_Comp_8
+{
+    class Practice_1
+    {
+        static void Main()
+        {
+            string path = @"c:\somefile.jpg";
+            File.Copy(@"c:\temp\myfile.jpg", @"d:\temp\myfile.jpg", true);
+            File.Delete(path);
+            if (File.Exists(path))
+            {
+                //
+            }
+            string fileText = File.ReadAllText(path);
+
+            FileInfo fileInfo = new FileInfo(path);
+            fileInfo.CopyTo("...");
+            fileInfo.Delete();
+            if (fileInfo.Exists)
+            {
+                //
+            }
+        }
+    }
+}
