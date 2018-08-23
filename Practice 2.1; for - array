@@ -1,0 +1,47 @@
+using System;
+
+
+namespace Excercise3
+{
+    class Retest_ex_3
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter the number to get the factorial");
+            var number = Convert.ToInt32(Console.ReadLine());
+            var factor = 1;
+
+            var aArray = new int[number];
+
+            for (int i = 1; i <= number; i++)
+            {
+                factor = factor * i;
+
+                aArray[i - 1] = factor;
+
+                
+            }
+
+
+            Console.WriteLine("The factor: " + factor);
+
+            Console.WriteLine("The array numbers: ");
+            for (int x = 0; x < number; x++)
+            {
+                
+                Console.Write(aArray[x] + " ");
+
+                if (aArray[x] % 10 == 0)
+                {
+                    Console.Write("(Last char is 0)");
+
+                }
+
+                Console.Write("\n");
+
+            }
+
+            Console.WriteLine("");
+        }
+    }
+}
