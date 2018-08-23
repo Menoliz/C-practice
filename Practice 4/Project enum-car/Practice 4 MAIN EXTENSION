@@ -1,1 +1,154 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Rem4
+{
+    class mainClass
+    {
+        static void Main()
+        {
+            
+            Console.Write("The shop has: ");
+
+            foreach (string part in Enum.GetNames(typeof(CarParts)))
+            {
+                Console.Write(part + " ");
+            }
+            ConvoShopStart:
+            Console.WriteLine("\nYou interested in buying? Yes/No");
+            string shopBuy = Console.ReadLine().ToLower();
+            string output = "";
+            if (shopBuy == "no")
+            {
+                Console.WriteLine("Not interested? Alright then");
+                return;
+            }
+            else if (shopBuy == "yes")
+            {
+                Console.WriteLine("What items you wanna buy?");
+                string input = Console.ReadLine();
+                output = ShopParts(input);
+                if (output == "GoToStart")
+                {
+                    goto ConvoShopStart;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Whats that? Speak up");
+                goto ConvoShopStart;
+            }
+            Console.WriteLine("Congratulations! You received a " + output);
+        }
+
+        public static string ShopParts(string input)
+        {
+            Random randomGoldAmount = new Random();
+            double goldAmount = randomGoldAmount.Next(100, 1001);
+            goldAmount = Math.Round(goldAmount / 50d, 0) * 50;
+            int ItemValue = 0;
+
+            if (String.IsNullOrWhiteSpace(input))
+            {
+                Conversation:
+                Console.WriteLine("You gonna buy somthin? Yes/No");
+                string shopAnswer = Console.ReadLine().ToLower();
+                if (shopAnswer == "yes")
+                {
+                    Console.WriteLine("Then enter your item");
+                    return "GoToStart";
+                }
+                else if (shopAnswer == "no")
+                {
+                    Console.WriteLine("Alright bye then");
+                    return "GoToStart";
+                }
+                else
+                {
+                    Console.WriteLine("What??");
+                    goto Conversation;
+                }
+            }
+            
+            string toLowerInput = input.ToLower();
+            string choice = toLowerInput.First().ToString().ToUpper() + String.Join("", toLowerInput.Substring(1));
+
+
+            if (!Enum.IsDefined(typeof(CarParts), choice))
+            {
+                Console.WriteLine("Name is invalid. Choose a correct name");
+                return "GoToStart";
+            }
+
+            CarParts playerchoice = (CarParts)Enum.Parse(typeof(CarParts), choice);
+
+            switch (playerchoice)
+            {
+                case CarParts.Door:
+                    {
+                        Console.WriteLine("The " + choice + " costs 200eur");
+                        ItemValue = 200;
+                        break;
+                    }
+                case CarParts.Engine:
+                    {
+                        Console.WriteLine("The " + choice + " costs 700eur");
+                        ItemValue = 700;
+                        break;
+                    }
+                case CarParts.Bumper:
+                //case CarParts.Windows:
+                //case CarParts.Exhaust:
+                    {
+                        Console.WriteLine("The " + choice + " costs 100 eur");
+                        ItemValue = 100;
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Invalid part name");
+                        break;
+                    }
+                
+            }
+            
+            //Console.WriteLine("You have " + goldAmount + " gold coins");
+
+
+            
+            Console.WriteLine("Thats the cost. You wanna buy it? Yes/No. [You have " + goldAmount + " gold coins]");
+            string shopAnswer2 = Console.ReadLine().ToLower();
+
+            if (shopAnswer2 == "no")
+            {
+                Console.Write("\nChoose another one: ");
+                return "GoToStart";
+            }
+            else if (shopAnswer2 == "yes")
+            {
+                if (goldAmount < ItemValue)
+                {
+                    Console.WriteLine("You don't have enough gold. Try another item");
+                    return "GoToStart";
+                }
+                else if(goldAmount >= ItemValue)
+                {
+                    goldAmount -= ItemValue;
+                    Console.WriteLine("Good deal. Here is your " + choice + " [You have " + goldAmount + " gold left]" );
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Somethings not right");
+                    return "";
+                }
+            }
+
+            return choice;
+        }
+    }
+}
 
