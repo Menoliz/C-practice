@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+/*
+namespace Excercise_1
+{
+    class Excer1
+    {
+        static void Main(string[] args)
+        {
+            string filePath = @"C:\Users\Serene\Desktop\ForC#.txt";
+            string fileText = "";
+            if (File.Exists(filePath))
+            {
+                fileText = File.ReadAllText(filePath);
+                Console.WriteLine(fileText);
+            }
+            string[] stringArray = fileText.Split(' ');
+            int wordAmount = 0;
+            foreach (string word in stringArray)
+            {
+                wordAmount++;
+            }
+            Console.WriteLine(wordAmount);
+        }
+    }
+}
