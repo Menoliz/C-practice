@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practice_2
+{
+    class Prac2
+    {
+        static void Main()
+        {
+            TimeSpan laikotarpas = new TimeSpan(1, 2, 45);
+            TimeSpan laikotarpas2 = new TimeSpan(1, 0, 0);
+            TimeSpan laikotarpas3 = TimeSpan.FromHours(1);
+
+            DateTime pradzia = DateTime.Now;
+            DateTime pabaiga = DateTime.Now.AddMinutes(4);
+            TimeSpan tarpas = pabaiga - pradzia;
+            Console.WriteLine("Tarpas " + tarpas);
+
+            // Properties
+            Console.WriteLine("Minutes: " + laikotarpas.Minutes);
+            Console.WriteLine("Isviso minuciu :" + laikotarpas.TotalMinutes);
+
+            // Add
+            Console.WriteLine("Prideti: " + laikotarpas.Add(TimeSpan.FromHours(2)));
+            Console.WriteLine("Atimti: " + laikotarpas.Subtract(TimeSpan.FromHours(1)));
+
+            // ToString
+            Console.WriteLine("ToString " + laikotarpas.ToString());
+
+            //Parse
+            Console.WriteLine("Parse " + TimeSpan.Parse("01:02:45"));
+        }
+    }
+}
