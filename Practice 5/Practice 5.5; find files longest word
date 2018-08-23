@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace Excercise2
+{
+    class Excer2
+    {
+        static void Main()
+        {
+            string path = @"C:\Users\Serene\Desktop\ForC#.txt";
+            Console.WriteLine(GetLongestWord(path));
+        }
+
+
+        public static string GetLongestWord(string path)
+        {
+            string[] textArray = File.ReadAllLines(path);
+
+            string word = "";
+            for (int i = 0; i < textArray.Length; i++)
+            {
+                string[] Line = textArray[i].Split(' ');
+                word = Line[0];
+                for (int x = 0; x < Line.Length; x++)
+                {
+                    if (word.Length < Line[x].Length)
+                    {
+                        word = Line[x];
+                    }
+                }
+            }
+            return word;
+        }
+    }
+}
