@@ -1,0 +1,28 @@
+//C# code
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Prac2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Write a number");
+            var strNumber = Console.ReadLine();
+            var intNumber = Convert.ToInt32(strNumber);
+            if (intNumber <= 10 && intNumber >= 1)
+            {
+                Console.WriteLine("Number is valid");
+            }
+            else
+            {
+                Console.WriteLine("Number is invalid");
+            }
+        }
+    }
+}
