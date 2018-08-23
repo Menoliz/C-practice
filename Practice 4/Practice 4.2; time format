@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Excercise_3
+{
+    class Retest3
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter time in 24 hour format (ex 14:10) ");
+            string inputString = Console.ReadLine();
+            Console.WriteLine(ReturnTime(inputString));
+        }
+
+
+        public static string ReturnTime(string inputString)
+        {
+            if (String.IsNullOrWhiteSpace(inputString))
+            {
+                Console.WriteLine("No input was supplied");
+                return "";
+            }
+
+            string[] splitArray = inputString.Split(':');
+
+            if (splitArray.Length != 2)
+            {
+                Console.WriteLine("Invalid time format, man");
+                return "";
+            }
+
+            int timeHour = Convert.ToInt32(splitArray[0]);
+            int timeMinute = Convert.ToInt32(splitArray[1]);
+
+            if (timeHour >= 0 && timeHour <= 23 && timeMinute >= 0 && timeMinute <= 59)
+            {
+                //Console.WriteLine("Time format is ok");
+                return "Time formar is ok";
+            }
+            else
+            {
+                //Console.WriteLine("The format is wrong, number amounts exceed time range");
+                return "The format is wrong, number amounts exceed time range";
+            }
+        }
+    }
+}
