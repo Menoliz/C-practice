@@ -1,0 +1,16 @@
+namespace Excercise2
+{
+    class Retest2
+    {
+        static void Main()
+        {
+            string path = @"C:\Users\Serene\Desktop\ForC#.txt";
+            string fileText = File.ReadAllText(path);
+
+            Console.WriteLine("Alltext: " + fileText);
+
+            string[] fileLines = File.ReadAllLines(path);
+            Console.WriteLine("\n" + fileLines[1] + "\n" + fileLines[2]);
+        }
+    }
+}
