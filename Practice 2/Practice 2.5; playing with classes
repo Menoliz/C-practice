@@ -1,0 +1,83 @@
+using System;
+
+
+namespace Prac5
+{
+    public class Person
+    {
+        public string eRekt;
+        public string eRekt2;
+    }
+
+    public class Writing
+    {
+        public string writeThis;
+        public string writeThis2;
+
+    }
+
+    class Retest5
+    {
+        static void Main()
+        {
+            var number = 2.7;
+            Adder(number);
+            Adder2(number);
+            Console.WriteLine("Main number: " + number);
+
+            var obj = new Person() { eRekt = "Ya got screwed! " };
+            Helper(obj);
+            Console.WriteLine("Person.eRekt console: " + obj.eRekt);
+
+            var inThis = new Writing() { writeThis = "Dew Zeland 56a" };
+            var inThis2 = new Writing();
+            Relocator(inThis2);
+            Console.WriteLine("\n" + inThis.writeThis + inThis2.writeThis2);
+        }
+
+        public static void Adder(double number)
+        {
+            number += 2.5;
+            var x = number;
+            Console.WriteLine("Adder x: " + x);
+        }
+
+        public static void Adder2(double number)
+        {
+            //Console.WriteLine("Adder2 number:" + number);
+            Adder(number);
+        }
+
+        public static void Helper(Person oPerson)
+        {
+            oPerson.eRekt += " x2 double up";
+            //Console.WriteLine("GetRekt console: " + y);
+        }
+
+        public static void Relocator(Writing oDest)
+        {
+            Console.WriteLine("\n \n Did you find the place? Y/N ?");
+            var aChoice = Console.ReadLine();
+            bool aBool;
+            if (aChoice == "y")
+            {
+                aBool = true;
+            }
+            else
+            {
+                aBool = false;
+            }
+
+            if (aBool == true) 
+            {
+                oDest.writeThis2 = " Alright good job";
+            }
+            else
+            {
+                oDest.writeThis2 = " It's near the shop!";
+            }
+        }
+    }
+
+    
+}
