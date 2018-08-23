@@ -1,0 +1,112 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+namespace Excercise_2
+{
+    class Excer_2
+    {
+        static void Main()
+        {
+            Console.WriteLine("Write numbers seperated by a '-' ");
+            string inputNumbers = Console.ReadLine();
+
+            if (String.IsNullOrEmpty(inputNumbers))
+            {
+                return;
+            }
+
+            string[] splitString = inputNumbers.Split('-');
+
+            List<int> numberList = new List<int>();
+
+            foreach (string number in splitString)
+            {
+                int convertNumber = Convert.ToInt32(number);
+                numberList.Add(convertNumber);
+            }
+
+            bool isDuplicate = false;
+            List<int> uniqueNumbers = new List<int>();
+
+            foreach (int number in numberList)
+            {
+                if (!uniqueNumbers.Contains(number))
+                {
+                    uniqueNumbers.Add(number);
+                }
+                else
+                {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            string theMessage = isDuplicate ? "There are duplicates" : "No duplicates";
+            Console.WriteLine(theMessage);
+        }
+    }
+}
+*/
+
+
+
+
+
+
+
+namespace Excercise_2
+{
+    class Retest2
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter numbers seperated by '-' ");
+            string input = Console.ReadLine();
+            bool isDuplicate = ContainsDuplicates(input);
+            
+            if(isDuplicate == true)
+            {
+                Console.WriteLine("There are duplicates");
+            }
+            else
+            {
+                Console.WriteLine("No duplicates");
+            }
+        }
+
+        public static bool ContainsDuplicates(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+            {
+                Console.WriteLine("Exiting program");
+                return false;
+            }
+            string[] arrayString = input.Split('-');
+            List<int> numberList = new List<int>();
+
+            foreach (string number in arrayString)
+            {
+                numberList.Add(Convert.ToInt32(number));
+            }
+            List<int> uniqueNumbers = new List<int>();
+            bool isDuplicate = false;
+
+            foreach (int number in numberList)
+            {
+                if (!uniqueNumbers.Contains(number))
+                {
+                    uniqueNumbers.Add(number);
+                }
+                else
+                {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            return isDuplicate;
+        }
+    }
+}
