@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+
+namespace Excercise_5
+{
+    class Retest5
+    {
+        static void Main()
+        {
+            string[] strNumberArray;
+            Console.WriteLine("Write numbers seperated by a comma: ',' ");
+            while (true)
+            {
+                string commaNumbers = Console.ReadLine();
+                if (!String.IsNullOrWhiteSpace(commaNumbers))
+                {
+                    strNumberArray = commaNumbers.Split(',');
+                    if (strNumberArray.Length >= 5)
+                    {
+                        break;
+                    }
+                }
+                Console.WriteLine("List is too short man");
+            }
+
+            List<int> numberList = new List<int>();
+            foreach (string strNumber in strNumberArray)
+            {
+                numberList.Add(Convert.ToInt32(strNumber));
+            }
+
+            List<int> smallestNumber = new List<int>();
+
+
+            while (smallestNumber.Count < 3)
+            {
+                int minNumber = numberList[0];
+                foreach(int number in numberList)
+                {
+                    if (number < minNumber)
+                    {
+                        minNumber = number;
+                    }
+                }
+                smallestNumber.Add(minNumber);
+                numberList.Remove(minNumber);
+            }
+
+            Console.WriteLine("The 3 smallest numbers");
+            foreach(int number in smallestNumber)
+            {
+                Console.WriteLine(number);
+            }
+        }
+    }
+}
+ 
