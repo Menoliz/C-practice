@@ -1,0 +1,26 @@
+//C# code
+
+using System;
+
+namespace Excersize_3
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter width");
+            var b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter height");
+            var h = Convert.ToInt32(Console.ReadLine());
+
+            if (b > h)
+            {
+                Console.WriteLine("Its a landscape");
+            }
+            else
+            {
+                Console.WriteLine("Its a portrait");
+            }
+        }
+    }
+}
