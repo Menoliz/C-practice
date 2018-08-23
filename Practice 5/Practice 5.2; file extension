@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+namespace Practice3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var path = @"C:\Users\Serene\Desktop\C sharp\Coding 01 08 2017\VS Comp 4\VS Comp 4\VS Comp 4.sln";
+
+            var dotIndex = path.IndexOf('.');
+            var extension = path.Substring(dotIndex);
+
+            Console.WriteLine("The exstension: " + Path.GetExtension(path));
+            Console.WriteLine("File name: " + Path.GetFileName(path));
+            Console.WriteLine("File name withot extension: " + Path.GetFileNameWithoutExtension(path));
+            Console.WriteLine("Directory name: " + Path.GetDirectoryName(path));
+        }
+    }
+}
